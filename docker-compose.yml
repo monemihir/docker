@@ -27,3 +27,10 @@ services:
       context: ./boto3
       args:
         BOTO3_VERSION: "1.21.40"
+
+  packer-ansible:
+    image: monemihir/packer-ansible:latest
+    build:
+      context: ./packer-ansible
+      args:
+        PACKER_VERSION: "1.8.0"
