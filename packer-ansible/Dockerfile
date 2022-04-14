@@ -3,8 +3,7 @@ ARG PACKER_VERSION
 FROM hashicorp/packer:${PACKER_VERSION}
 LABEL maintainer="Mihir Mone <monemihir@hotmail.com>"
 
-RUN alpine -v && \
-  apk --no-cache add ansible py-pip py-boto && \
+RUN apk --no-cache add ansible py-pip py-boto && \
   pip install pywinrm && \
   apk --no-cache add docker openrc && \
   rc-update add docker boot
