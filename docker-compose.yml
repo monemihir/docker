@@ -1,0 +1,29 @@
+---
+version: "3"
+networks:
+  default:
+    external:
+      name: bridge
+
+services:
+  yamllint:
+    image: monemihir/yamllint:1.26.3
+    build:
+      context: ./yamllint
+      args:
+        YAMLLINT_VERSION: "1.26.3"
+
+  awscli:
+    image: monemihir/awscli:1.22.95
+    build:
+      context: ./awscli
+      args:
+        AWSCLI_VERSION: "1.22.95"
+        S3CMD_VERSION: "2.2.0"
+
+  boto3:
+    image: monemihir/boto3:1.21.40
+    build:
+      context: ./boto3
+      args:
+        BOTO3_VERSION: "1.21.40"
